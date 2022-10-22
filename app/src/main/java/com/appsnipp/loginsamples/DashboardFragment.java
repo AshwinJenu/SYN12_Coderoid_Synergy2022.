@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,13 +19,26 @@ import com.razorpay.Checkout;
 
 import org.json.JSONObject;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class DashboardFragment extends Fragment {
 
 
     Button payment;
+    Button apply;
     Button clg_id;
     Button sem_rep;
     Button aadhaar;
+    private Connection connect;
+    private String query;
+    private Statement st;
+    private ResultSet rs;
+    EditText sgpi_et;
+    EditText cgpi_et;
+    EditText honours_et;
 
     @Nullable
     @Override
@@ -33,9 +47,13 @@ public class DashboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dashboard,container,false);
 
         payment = (Button) view.findViewById(R.id.payment_btn);
+        apply = (Button) view.findViewById(R.id.apply_btn);
         clg_id = (Button) view.findViewById(R.id.clg_id_btn);
         sem_rep = (Button) view.findViewById(R.id.sem_rep_btn);
         aadhaar = (Button) view.findViewById(R.id.aadhaar_btn);
+        sgpi_et = (EditText) view.findViewById(R.id.sgpi_et);
+        cgpi_et = (EditText) view.findViewById(R.id.cgpi_et);
+        honours_et = (EditText) view.findViewById(R.id.hon_et);
 
         clg_id.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +65,31 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
 
 
+
+            }
+        });
+
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String sgpi = sgpi_et.getText().toString();
+                String cgpi = cgpi_et.getText().toString();
+                String honours = honours_et.getText().toString();
+
+                try {
+                    ConnectionHelper connectionHelper = new ConnectionHelper();
+                    connect = connectionHelper.connectionclass();
+
+                    if (connect != null) {
+                        query = "Insert into application(ID,sgpi,cgpi,honours)" +
+                                " Values('"+Global.ID+"','"+sgpi+"','"+cgpi+"','"+honours+"');";
+                        st = connect.createStatement();
+                        st.executeUpdate(query);
+                        connect.close();
+                    }
+                }catch (SQLException | ClassNotFoundException e){
+                    e.printStackTrace();
+                }
 
             }
         });

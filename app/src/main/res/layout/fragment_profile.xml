@@ -190,6 +190,7 @@
                 android:layout_weight="40"
                 android:textSize="16dp"
                 android:paddingHorizontal="30dp"
+                android:inputType="number"
                 android:id="@+id/roll_tv"/>
 
         </LinearLayout>

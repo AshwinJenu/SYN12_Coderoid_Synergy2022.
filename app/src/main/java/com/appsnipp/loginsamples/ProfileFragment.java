@@ -112,7 +112,11 @@ public class ProfileFragment extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                String dob1 = (String) dob.getText();
+                String address1 = address.getText().toString();
+                String roll1 = roll.getText().toString();
+                String dept1 = dept.getText().toString();
+                String yop1 = (String) yop.getText().toString();
 
 
                 try {
@@ -120,12 +124,10 @@ public class ProfileFragment extends Fragment {
                     connect = connectionHelper.connectionclass();
 
                     if (connect != null) {
-                        query = "Insert into application(Address,roll_no,dob,department,year_of_passing,sgpi,cgpi,honours)" +
-                                " Values('')";
+                        query = "Insert into profile(ID,Address,roll_no,dob,department,year_of_passing)" +
+                                " Values('"+Global.ID+"','"+address1+"','"+roll1+"','"+dob1+"','"+dept1+"','"+yop1+"');";
                         st = connect.createStatement();
                         st.executeUpdate(query);
-                        name.setText(rs.getString("Name"));
-                        email.setText(rs.getString("Email"));
                         connect.close();
                     }
                 }catch (SQLException | ClassNotFoundException e){

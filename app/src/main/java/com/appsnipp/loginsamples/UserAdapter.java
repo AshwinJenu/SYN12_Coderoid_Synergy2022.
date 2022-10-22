@@ -15,7 +15,7 @@ import java.util.Locale;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
 
     private Context context;
-    private ArrayList<User> users;
+    private ArrayList<User> users = new ArrayList<User>() ;
 
     public UserAdapter(Context context, ArrayList<User> users) {
        this.context = context;

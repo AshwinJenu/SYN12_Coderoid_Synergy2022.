@@ -27,6 +27,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
+            android:name=".ApplicationDetails"
+            android:exported="false" />
+        <activity
             android:name=".TPOActivity"
             android:exported="false" />
         <activity
