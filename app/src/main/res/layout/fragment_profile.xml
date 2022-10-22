@@ -53,6 +53,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Test"
+                            android:id="@+id/profile_name"
                             android:textColor="#2196F3"
                             android:textSize="20dp"
                             android:textStyle="bold" />
@@ -77,6 +78,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="abc123789@gmail.com"
+                            android:id="@+id/profile_email"
                             android:textColor="#2196F3"
                             android:textSize="16dp"
                             android:textStyle="bold" />
@@ -106,7 +108,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_margin="20dp"
+            android:layout_marginHorizontal="20dp"
             android:padding="10dp"
             android:orientation="horizontal"
             android:weightSum="100">
@@ -131,13 +133,13 @@
                 android:text="Select Date"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:id="@+id/dob_tv"/>
+                android:id="@+id/dob_tv" />
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_margin="20dp"
+            android:layout_marginHorizontal="20dp"
             android:padding="10dp"
             android:orientation="horizontal"
             android:weightSum="100">
@@ -158,13 +160,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="40"
                 android:textSize="16dp"
-                android:paddingHorizontal="30dp"/>
+                android:paddingHorizontal="30dp"
+                android:id="@+id/address_tv"/>
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_margin="20dp"
+            android:layout_marginHorizontal="20dp"
             android:padding="10dp"
             android:orientation="horizontal"
             android:weightSum="100">
@@ -174,9 +177,9 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="60"
-                android:text="DOB"
+                android:text="Department"
                 android:textColor="#000"
-                android:textSize="16dp"
+                android:textSize="15.4dp"
                 android:gravity="center"
                 android:paddingHorizontal="30dp"/>
 
@@ -185,13 +188,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="40"
                 android:textSize="16dp"
-                android:paddingHorizontal="30dp"/>
+                android:paddingHorizontal="30dp"
+                android:id="@+id/dept_tv"/>
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_margin="20dp"
+            android:layout_marginHorizontal="20dp"
             android:padding="10dp"
             android:orientation="horizontal"
             android:weightSum="100">
@@ -201,7 +205,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="60"
-                android:text="DOB"
+                android:text="Year Of passing"
                 android:textColor="#000"
                 android:textSize="16dp"
                 android:gravity="center"
@@ -220,7 +224,95 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="20dp"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="60"
+                android:text="SGPI"
+                android:textColor="#000"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:paddingHorizontal="30dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+                android:textSize="16dp"
+                android:paddingHorizontal="30dp"
+                android:id="@+id/sgpi_et"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="20dp"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="60"
+                android:text="CGPI"
+                android:textColor="#000"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:paddingHorizontal="30dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+                android:textSize="16dp"
+                android:paddingHorizontal="30dp"
+                android:id="@+id/cgpi_et"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="20dp"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="60"
+                android:text="Honours"
+                android:textColor="#000"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:paddingHorizontal="30dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+                android:textSize="16dp"
+                android:paddingHorizontal="30dp"
+                android:id="@+id/hon_et"/>
+
+        </LinearLayout>
+
         <Button
+            android:id="@+id/save_btn"
             android:layout_width="180dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"

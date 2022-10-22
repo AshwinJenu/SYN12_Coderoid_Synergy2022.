@@ -68,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
                                 if(!rs.isBeforeFirst()) {
                                     Toast.makeText(LoginActivity.this, "Wrong Username or Password", Toast.LENGTH_SHORT).show();
                                 }else{
+                                    rs.next();
+                                    Global.ID = rs.getString("ID");
                                     Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                                     startActivity(intent);
                                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();

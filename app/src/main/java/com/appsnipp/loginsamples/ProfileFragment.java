@@ -2,17 +2,24 @@ package com.appsnipp.loginsamples;
 
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.util.Calendar;
 
@@ -20,6 +27,13 @@ public class ProfileFragment extends Fragment implements DatePickerDialog.OnDate
 
     TextView dob;
     TextView yop;
+    TextView name;
+    TextView email;
+    Button save;
+    private Connection connect;
+    private String query;
+    private Statement st;
+    private ResultSet rs;
 
     @Nullable
     @Override
@@ -29,6 +43,26 @@ public class ProfileFragment extends Fragment implements DatePickerDialog.OnDate
 
         dob = (TextView) view.findViewById(R.id.dob_tv);
         yop = (TextView) view.findViewById(R.id.yop_tv);
+        name = (TextView) view.findViewById(R.id.profile_name);
+        email = (TextView) view.findViewById(R.id.profile_email);
+        save = (Button) view.findViewById(R.id.save_btn);
+
+        try {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            connect = connectionHelper.connectionclass();
+
+            if (connect != null) {
+                query = "Select * from users where ID = '"+Global.ID+"'";
+                st = connect.createStatement();
+                rs = st.executeQuery(query);
+                rs.next();
+                name.setText(rs.getString("Name"));
+                email.setText(rs.getString("Email"));
+                connect.close();
+            }
+        }catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
 
         dob.setOnClickListener(new View.OnClickListener() {
             @Override
