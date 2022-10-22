@@ -23,12 +23,15 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-public class ProfileFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
+public class ProfileFragment extends Fragment {
 
     TextView dob;
     TextView yop;
     TextView name;
     TextView email;
+    TextView address;
+    TextView roll;
+    TextView dept;
     Button save;
     private Connection connect;
     private String query;
@@ -46,6 +49,9 @@ public class ProfileFragment extends Fragment implements DatePickerDialog.OnDate
         name = (TextView) view.findViewById(R.id.profile_name);
         email = (TextView) view.findViewById(R.id.profile_email);
         save = (Button) view.findViewById(R.id.save_btn);
+        address = (TextView) view.findViewById(R.id.address_tv);
+        roll = (TextView) view.findViewById(R.id.roll_tv);
+        dept = (TextView) view.findViewById(R.id.dept_tv);
 
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
@@ -65,32 +71,71 @@ public class ProfileFragment extends Fragment implements DatePickerDialog.OnDate
         }
 
         dob.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
-                DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getFragmentManager(),"Date Picker");
-                dob.setText("ok");
+                Calendar c = Calendar.getInstance();
+                int year = c.get(Calendar.YEAR);
+                int month = c.get(Calendar.MONTH);
+                int dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog datePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                        dob.setText(year+"/"+month+"/"+dayOfMonth);
+                    }
+                },year,month,dayOfMonth);
+                datePicker.show();
             }
         });
 
         yop.setOnClickListener(new View.OnClickListener() {
+            Calendar c = Calendar.getInstance();
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
+
             @Override
             public void onClick(View view) {
-                DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getFragmentManager(),"Date Picker");
+
+                DatePickerDialog datePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                        yop.setText(year+"/"+month+"/"+dayOfMonth);
+                    }
+                },year,month,dayOfMonth);
+                datePicker.show();
+            }
+        });
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                try {
+                    ConnectionHelper connectionHelper = new ConnectionHelper();
+                    connect = connectionHelper.connectionclass();
+
+                    if (connect != null) {
+                        query = "Insert into application(Address,roll_no,dob,department,year_of_passing,sgpi,cgpi,honours)" +
+                                " Values('')";
+                        st = connect.createStatement();
+                        st.executeUpdate(query);
+                        name.setText(rs.getString("Name"));
+                        email.setText(rs.getString("Email"));
+                        connect.close();
+                    }
+                }catch (SQLException | ClassNotFoundException e){
+                    e.printStackTrace();
+                }
             }
         });
 
         return view;
     }
 
-    @Override
-    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR,year);
-        c.set(Calendar.MONTH,month);
-        c.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
-        dob.setText(currentDate);
-    }
+
 }
