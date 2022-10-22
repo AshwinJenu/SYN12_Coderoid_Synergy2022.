@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button login_btn;
     private String email_val;
     private String password_val;
+    private CheckBox tpo_cb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +39,13 @@ public class LoginActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.editTextEmail);
         password = (EditText) findViewById(R.id.editTextPassword);
         login_btn = (Button) findViewById(R.id.LoginButton);
+        tpo_cb = (CheckBox) findViewById(R.id.tpo_cb);
+
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -55,38 +59,55 @@ public class LoginActivity extends AppCompatActivity {
 
                 Validation validation = new Validation();
 
-                if(!email_val.equals("")&&!password_val.equals("")){
-                    if(validation.emailValidate(email_val)){
+                if (!email_val.equals("") && !password_val.equals("")) {
+                    if (validation.emailValidate(email_val)) {
                         try {
                             ConnectionHelper connectionHelper = new ConnectionHelper();
                             connect = connectionHelper.connectionclass();
 
                             if (connect != null) {
-                                query = "Select ID from users where email = '" + email_val + "' AND password='"+password_val+"'";
-                                st = connect.createStatement();
-                                rs = st.executeQuery(query);
-                                if(!rs.isBeforeFirst()) {
-                                    Toast.makeText(LoginActivity.this, "Wrong Username or Password", Toast.LENGTH_SHORT).show();
-                                }else{
-                                    rs.next();
-                                    Global.ID = rs.getString("ID");
-                                    Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-                                    startActivity(intent);
-                                    Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                    finish();
+                                if (tpo_cb.isChecked()) {
+                                    query = "Select ID from TPO where email = '" + email_val + "' AND password='" + password_val + "'";
+                                    st = connect.createStatement();
+                                    rs = st.executeQuery(query);
+                                    if (!rs.isBeforeFirst()) {
+                                        Toast.makeText(LoginActivity.this, "Wrong Username or Password", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        rs.next();
+                                        Global.ID = rs.getString("ID");
+                                        Intent intent = new Intent(LoginActivity.this, TPOActivity.class);
+                                        startActivity(intent);
+                                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    }
+
+                                } else {
+                                    query = "Select ID from users where email = '" + email_val + "' AND password='" + password_val + "'";
+                                    st = connect.createStatement();
+                                    rs = st.executeQuery(query);
+                                    if (!rs.isBeforeFirst()) {
+                                        Toast.makeText(LoginActivity.this, "Wrong Username or Password", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        rs.next();
+                                        Global.ID = rs.getString("ID");
+                                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                        startActivity(intent);
+                                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    }
                                 }
                                 connect.close();
                             }
 
-                        }catch (SQLException | ClassNotFoundException e){
+                        } catch (SQLException | ClassNotFoundException e) {
                             e.printStackTrace();
                         }
 
-                    }else{
+                    } else {
                         Toast.makeText(LoginActivity.this, "Enter Valid Email", Toast.LENGTH_SHORT).show();
                     }
 
-                }else{
+                } else {
                     Toast.makeText(LoginActivity.this, "Enter Email and Password", Toast.LENGTH_SHORT).show();
                 }
             }

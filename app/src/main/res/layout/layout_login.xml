@@ -54,6 +54,13 @@
             android:layout_gravity="end"
             android:onClick="viewForgotPAssword"
             android:layout_marginTop="10dp"/>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="TPO Login"
+            android:id="@+id/tpo_cb" />
 
         <Button
             android:id="@+id/LoginButton"
@@ -70,7 +77,5 @@
             android:text="@string/login_signup_hint"
             android:id="@+id/register"
             android:layout_marginTop="@dimen/loginViewsMargin"/>
-
-
     </LinearLayout>
 </androidx.cardview.widget.CardView>

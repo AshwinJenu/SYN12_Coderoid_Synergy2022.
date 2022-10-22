@@ -23,6 +23,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation files('C:\\Users\\ashwi\\Downloads\\LoginSamples\\LoginSamples\\app\\libs\\jtds-1.3.1.jar')
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
@@ -34,5 +37,6 @@ dependencies {
     implementation 'com.karumi:dexter:6.2.3'
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'com.razorpay:checkout:1.6.26'
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 
 }

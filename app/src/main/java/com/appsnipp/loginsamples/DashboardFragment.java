@@ -40,9 +40,12 @@ public class DashboardFragment extends Fragment {
         clg_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                intent.setType("application/pdf");
+
+
+
+                Intent intent = new Intent(view.getContext(),PdfActivity.class);
+                startActivity(intent);
+
 
 
             }
