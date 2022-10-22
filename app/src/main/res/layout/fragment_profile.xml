@@ -164,6 +164,36 @@
                 android:id="@+id/address_tv"/>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="20dp"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="60"
+                android:text="Roll No."
+                android:textColor="#000"
+                android:textSize="15.4dp"
+                android:gravity="center"
+                android:paddingHorizontal="30dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+                android:textSize="16dp"
+                android:paddingHorizontal="30dp"
+                android:id="@+id/roll_tv"/>
+
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -221,93 +251,6 @@
                 android:textAlignment="center"
                 android:gravity="center"
                 android:id="@+id/yop_tv"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:padding="10dp"
-            android:orientation="horizontal"
-            android:weightSum="100">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="60"
-                android:text="SGPI"
-                android:textColor="#000"
-                android:textSize="16dp"
-                android:gravity="center"
-                android:paddingHorizontal="30dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="40"
-                android:textSize="16dp"
-                android:paddingHorizontal="30dp"
-                android:id="@+id/sgpi_et"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:padding="10dp"
-            android:orientation="horizontal"
-            android:weightSum="100">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="60"
-                android:text="CGPI"
-                android:textColor="#000"
-                android:textSize="16dp"
-                android:gravity="center"
-                android:paddingHorizontal="30dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="40"
-                android:textSize="16dp"
-                android:paddingHorizontal="30dp"
-                android:id="@+id/cgpi_et"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:padding="10dp"
-            android:orientation="horizontal"
-            android:weightSum="100">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="60"
-                android:text="Honours"
-                android:textColor="#000"
-                android:textSize="16dp"
-                android:gravity="center"
-                android:paddingHorizontal="30dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="40"
-                android:textSize="16dp"
-                android:paddingHorizontal="30dp"
-                android:id="@+id/hon_et"/>
 
         </LinearLayout>
 

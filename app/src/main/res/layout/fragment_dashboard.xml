@@ -4,15 +4,221 @@
     android:layout_height="match_parent"
     android:background="#E8E6D5">
 
-    <Button
-        android:id="@+id/payment"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_gravity="center_vertical"
-        android:gravity="center"
-        android:layout_margin="20dp"
-        android:padding="10dp"
-        android:text="Make Payment"
-        android:textSize="18dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="20dp"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="60"
+                android:text="SGPI"
+                android:textColor="#000"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:paddingHorizontal="30dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+                android:textSize="16dp"
+                android:paddingHorizontal="30dp"
+                android:id="@+id/sgpi_et"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="20dp"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="60"
+                android:text="CGPI"
+                android:textColor="#000"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:paddingHorizontal="30dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+                android:textSize="16dp"
+                android:paddingHorizontal="30dp"
+                android:id="@+id/cgpi_et"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="20dp"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="60"
+                android:text="Honours"
+                android:textColor="#000"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:paddingHorizontal="30dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+                android:textSize="16dp"
+                android:paddingHorizontal="30dp"
+                android:id="@+id/hon_et"/>
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:padding="10dp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="60"
+                    android:text="College Id"
+                    android:textColor="#000"
+                    android:textSize="16dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="30dp"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40"
+                    android:textSize="12dp"
+                    android:paddingHorizontal="30dp"
+                    android:text="Upload"
+                    android:id="@+id/clg_id_btn"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:padding="10dp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="60"
+                    android:text="Semester Report"
+                    android:textColor="#000"
+                    android:textSize="16dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="30dp"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40"
+                    android:textSize="12dp"
+                    android:paddingHorizontal="30dp"
+                    android:text="Upload"
+                    android:id="@+id/sem_rep_btn"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:padding="10dp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="60"
+                    android:text="Aadhaar"
+                    android:textColor="#000"
+                    android:textSize="16dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="30dp"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40"
+                    android:textSize="12dp"
+                    android:paddingHorizontal="30dp"
+                    android:text="Upload"
+                    android:id="@+id/aadhaar_btn"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/apply_btn"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:layout_margin="20dp"
+                android:padding="10dp"
+                android:text="Apply Now"
+                android:textSize="18dp"/>
+
+            <Button
+                android:id="@+id/payment_btn"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:layout_margin="20dp"
+                android:padding="10dp"
+                android:text="Payment"
+                android:textSize="18dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
 
 </RelativeLayout>
